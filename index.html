@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="CIR 竞品、证据与研究判断的公开只读快照" />
+    <title>CIR 竞品研究终端</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%23020a13%22/><text x=%2232%22 y=%2240%22 text-anchor=%22middle%22 font-family=%22monospace%22 font-size=%2223%22 font-weight=%22700%22 fill=%22%2367e8f9%22>CIR</text></svg>" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand-mark">CIR</div>
+      <div class="brand-copy">
+        <h1>竞品研究终端</h1>
+        <p>竞品与证据 · 公开只读快照</p>
+      </div>
+      <label class="search-wrap">
+        <span aria-hidden="true">⌕</span>
+        <input id="search" type="search" placeholder="搜索产品、提供者、场景或待验证问题" autocomplete="off" />
+      </label>
+      <div class="read-only"><i></i>云端只读</div>
+    </header>
+
+    <main class="shell">
+      <section id="metrics" class="metrics" aria-label="研究库概况"></section>
+      <div class="workspace">
+        <aside class="filters">
+          <div class="panel-heading">
+            <h2>组合筛选 <span id="filter-count" class="count-pill" hidden>0</span></h2>
+            <button id="clear" type="button">清除</button>
+          </div>
+          <label>优先级<select id="priority"><option value="">全部优先级</option></select></label>
+          <label>地域<select id="region"><option value="">全部地域</option></select></label>
+          <label>开源状态<select id="open-source"><option value="">全部开源状态</option></select></label>
+          <label>产品路线<select id="route"><option value="">全部产品路线</option></select></label>
+          <p class="privacy-note">数据来自发布时生成的研究快照。访问、筛选和检索只在浏览器中完成，不会写回原始数据库。</p>
+        </aside>
+
+        <section class="results">
+          <div class="results-heading">
+            <div><p>RESEARCH SURFACE</p><h2>竞品与证据</h2></div>
+            <div><span id="result-count">0</span> 条结果</div>
+          </div>
+          <div id="loading" class="empty">正在读取研究快照…</div>
+          <div id="empty" class="empty" hidden>没有符合当前条件的对象</div>
+          <div id="product-list" class="product-list"></div>
+        </section>
+      </div>
+      <footer>公开只读版本 · 不采集访问分析数据 · <span id="snapshot-time"></span></footer>
+    </main>
+
+    <dialog id="detail-dialog">
+      <div class="dialog-shell">
+        <button id="dialog-close" class="dialog-close" type="button" aria-label="关闭">×</button>
+        <div id="detail"></div>
+      </div>
+    </dialog>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
