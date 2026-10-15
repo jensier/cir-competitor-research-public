@@ -50,11 +50,11 @@
           <div><p>FROM RESEARCH TO PRODUCT</p><h2 id="decision-title">研究如何改变产品</h2></div>
           <p>竞品数量不是结论。真正重要的是研究如何转化为可解释的产品取舍。</p>
         </div>
-        <div class="insight-grid">
-          <article class="insight-card"><span>01</span><h3>不重复建设通用数据终端</h3><p>金融终端已在数据、资讯与检索上形成深厚能力。研链智证聚焦重大事件后的研究重审，而不是替代所有数据入口。</p></article>
-          <article class="insight-card"><span>02</span><h3>不把长文生成当作核心壁垒</h3><p>通用 Deep Research 擅长多源汇总与报告写作。我们的差异是把新证据连接到既有研究状态，形成可审议的 Research Diff。</p></article>
-          <article class="insight-card"><span>03</span><h3>图谱底图不等于因果结论</h3><p>产业关系可由供应商或公开资料提供，但库存、替代、时滞、合同和财务映射仍需条件、证据和人工审核。</p></article>
-          <article class="insight-card"><span>04</span><h3>可信链路优先于黑箱判断</h3><p>每个关键结论应回到来源、时间、参数与版本；系统保留未知和反例，并由专业研究人员完成最终签收。</p></article>
+        <div class="insight-grid evidence-insights">
+          <article class="insight-card"><span>01 · 数据终端层</span><h3>Bloomberg、Wind、iFinD已经解决大量数据入口问题</h3><p>结论不是“再做一个终端”，而是让研链智证连接已有数据入口，聚焦重大事件后的路径、公司暴露与研究重审。</p><div class="evidence-line">代表对象：Bloomberg / iFinD / Wind</div></article>
+          <article class="insight-card"><span>02 · 研究Agent层</span><h3>AlphaSense、Hebbia、Kimi和Google已进入多步研究</h3><p>搜索、材料综合和报告写作本身不构成持久壁垒。CIR必须证明新证据如何改变既有Claim、Assumption、Forecast和Model Variable。</p><div class="evidence-line">代表对象：AlphaSense / Hebbia / Kimi / Google FRA</div></article>
+          <article class="insight-card"><span>03 · 产业关系数据层</span><h3>SAM、FactSet Revere和Panjiva可提供关系底图</h3><p>供应关系只能作为输入；库存、替代、合同、时滞和财务映射仍需独立证据、显式条件与人工审核。</p><div class="evidence-line">代表对象：SAM / FactSet Revere / Panjiva</div></article>
+          <article class="insight-card"><span>04 · 研究治理层</span><h3>研究管理和审计能力正在成为机构产品标配</h3><p>研链智证的取舍是把引用、时间、参数、版本、未知与人工签收放进同一研究状态，而不是只在报告末尾附来源。</p><div class="evidence-line">代表对象：Bipsync / AlphaSense / Google FRA</div></article>
         </div>
       </section>
 
@@ -63,15 +63,15 @@
           <div><p>FOCUS SET</p><h2 id="featured-title">重点竞品一键查看</h2></div>
           <p>精选直接竞品与关键替代方案；点击后进入完整证据目录。</p>
         </div>
-        <div class="featured-list">
-          <button class="featured-chip" type="button" data-query="Bloomberg Terminal">Bloomberg / ASKB</button>
-          <button class="featured-chip" type="button" data-query="AlphaSense Platform">AlphaSense</button>
-          <button class="featured-chip" type="button" data-query="Hebbia Matrix">Hebbia Matrix</button>
-          <button class="featured-chip" type="button" data-query="iFinD 智能投研平台">iFinD</button>
-          <button class="featured-chip" type="button" data-query="AIWork 工作台">AIWork</button>
-          <button class="featured-chip" type="button" data-query="Kimi 金融行业解决方案">Kimi Finance</button>
-          <button class="featured-chip" type="button" data-query="Financial Research Agent">Google FRA</button>
+        <div id="featured-list" class="featured-grid"></div>
+      </section>
+
+      <section class="section-block comparison" aria-labelledby="comparison-title">
+        <div class="section-heading compact">
+          <div><p>HEAD-TO-HEAD</p><h2 id="comparison-title">重点竞品横向能力矩阵</h2></div>
+          <p>只表达公开材料能够支持的判断；“未确认”表示需要试用、合同或客户材料验证。</p>
         </div>
+        <div id="featured-matrix" class="matrix-wrap" tabindex="0" aria-label="重点竞品横向能力矩阵"></div>
       </section>
 
       <section id="method" class="method-grid" aria-label="研究方法">
