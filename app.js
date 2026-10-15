@@ -1,4 +1,5 @@
 const $ = (selector) => document.querySelector(selector);
+const $$ = (selector) => [...document.querySelectorAll(selector)];
 const make = (tag, className, text) => {
   const node = document.createElement(tag);
   if (className) node.className = className;
@@ -53,19 +54,16 @@ function renderProducts() {
   const active = [state.priority, state.region, state.openSource, state.route].filter(Boolean).length;
   $('#filter-count').hidden = active === 0;
   $('#filter-count').textContent = active;
-
   for (const product of items) {
     const row = make('button', 'product-row');
     row.type = 'button';
     row.addEventListener('click', () => openDetail(product.id));
-
     const main = make('div');
     const meta = make('div', 'row-meta');
     meta.append(make('span', 'mono', product.id), badge(product.priority, product.priority.toLowerCase().replace(' ', '-')), badge(product.competition_relation));
     const title = make('div', 'row-title');
     title.append(make('strong', '', product.name), make('span', '', product.provider));
     main.append(meta, title, make('p', 'summary', product.relevance_summary));
-
     const side = make('div', 'row-side');
     side.append(make('div', '', product.routes), make('div', '', `${product.region} · ${product.open_source_status}`));
     row.append(main, side, make('span', 'chevron', '›'));
@@ -84,12 +82,10 @@ function openDetail(productId) {
   if (!product) return;
   const detail = $('#detail');
   detail.replaceChildren();
-
   const head = make('header', 'detail-head');
   const meta = make('div', 'row-meta');
   meta.append(make('span', 'mono', product.id), badge(product.priority, product.priority.toLowerCase().replace(' ', '-')), badge(product.competition_relation));
   head.append(meta, make('h2', '', product.name), make('p', '', `${product.provider} · ${product.region} · ${product.current_status} · v${product.record_version}`));
-
   const body = make('div', 'detail-body');
   const overview = make('section');
   const routes = make('div', 'route-list');
@@ -101,20 +97,20 @@ function openDetail(productId) {
   appendFact(facts, '核心链路', (product.chain_stages || []).map((x) => x.name).join('、'));
   overview.append(routes, make('p', 'lead', product.relevance_summary), facts);
   body.append(overview);
-
   const question = make('section');
   question.append(make('h3', '', '待验证问题'), make('div', 'question', product.open_question));
   body.append(question);
-
   const links = make('section');
   links.append(make('h3', '', '产品与代码入口'));
   const linkList = make('div', 'card-list');
-  const productLink = make('a', 'repo');
-  productLink.href = product.project_url;
-  productLink.target = '_blank';
-  productLink.rel = 'noreferrer';
-  productLink.append(make('span', '', '产品页'), make('span', '', '↗'));
-  linkList.append(productLink);
+  if (/^https?:\/\//.test(product.project_url || '')) {
+    const productLink = make('a', 'repo');
+    productLink.href = product.project_url;
+    productLink.target = '_blank';
+    productLink.rel = 'noreferrer';
+    productLink.append(make('span', '', '产品页'), make('span', '', '↗'));
+    linkList.append(productLink);
+  }
   for (const repo of product.repositories || []) {
     const link = make('a', 'repo');
     link.href = repo.url;
@@ -125,7 +121,6 @@ function openDetail(productId) {
   }
   links.append(linkList);
   body.append(links);
-
   const evidenceSection = make('section');
   evidenceSection.append(make('h3', '', `证据记录 · ${(product.evidence || []).length}`));
   const evidenceList = make('div', 'card-list');
@@ -143,7 +138,6 @@ function openDetail(productId) {
   }
   evidenceSection.append(evidenceList);
   body.append(evidenceSection);
-
   const batches = snapshot.histories[productId]?.batches || [];
   if (batches.length) {
     const historySection = make('section');
@@ -157,9 +151,22 @@ function openDetail(productId) {
     historySection.append(historyList);
     body.append(historySection);
   }
-
   detail.append(head, body);
   $('#detail-dialog').showModal();
+}
+
+function clearFilters() {
+  state = { query: '', priority: '', region: '', openSource: '', route: '' };
+  $('#search').value = '';
+  for (const selector of ['#priority', '#region', '#open-source', '#route']) $(selector).value = '';
+}
+
+function focusCatalog(query = '') {
+  clearFilters();
+  state.query = query;
+  $('#search').value = query;
+  renderProducts();
+  $('#catalog').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function bindControls() {
@@ -177,12 +184,9 @@ function bindControls() {
     clearTimeout(timer);
     timer = setTimeout(() => { state.query = event.target.value; renderProducts(); }, 120);
   });
-  $('#clear').addEventListener('click', () => {
-    state = { query: '', priority: '', region: '', openSource: '', route: '' };
-    $('#search').value = '';
-    for (const [selector] of bindings) $(selector).value = '';
-    renderProducts();
-  });
+  $('#clear').addEventListener('click', () => { clearFilters(); renderProducts(); });
+  $('#browse-catalog').addEventListener('click', () => focusCatalog());
+  for (const chip of $$('.featured-chip')) chip.addEventListener('click', () => focusCatalog(chip.dataset.query));
   $('#dialog-close').addEventListener('click', () => $('#detail-dialog').close());
   $('#detail-dialog').addEventListener('click', (event) => {
     if (event.target === $('#detail-dialog')) $('#detail-dialog').close();

@@ -3,51 +3,115 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="CIR 竞品、证据与研究判断的公开只读快照" />
-    <title>CIR 竞品研究终端</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%23020a13%22/><text x=%2232%22 y=%2240%22 text-anchor=%22middle%22 font-family=%22monospace%22 font-size=%2223%22 font-weight=%22700%22 fill=%22%2367e8f9%22>CIR</text></svg>" />
+    <meta name="description" content="研链智证竞品研究证据库：金融投研智能体、研究平台与替代工作流的公开只读研究快照。" />
+    <title>研链智证 · 竞品研究证据库</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%2302070d%22/><text x=%2232%22 y=%2240%22 text-anchor=%22middle%22 font-family=%22monospace%22 font-size=%2221%22 font-weight=%22700%22 fill=%22%2367e8f9%22>CP</text></svg>" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header class="topbar">
-      <div class="brand-mark">CIR</div>
+      <div class="brand-mark">CP</div>
       <div class="brand-copy">
-        <h1>竞品研究终端</h1>
-        <p>竞品与证据 · 公开只读快照</p>
+        <h1>研链智证</h1>
+        <p>CHAINPROOF RESEARCH</p>
       </div>
       <label class="search-wrap">
         <span aria-hidden="true">⌕</span>
         <input id="search" type="search" placeholder="搜索产品、提供者、场景或待验证问题" autocomplete="off" />
       </label>
-      <div class="read-only"><i></i>云端只读</div>
+      <div class="read-only"><i></i>公开只读快照</div>
     </header>
 
     <main class="shell">
-      <section id="metrics" class="metrics" aria-label="研究库概况"></section>
-      <div class="workspace">
-        <aside class="filters">
-          <div class="panel-heading">
-            <h2>组合筛选 <span id="filter-count" class="count-pill" hidden>0</span></h2>
-            <button id="clear" type="button">清除</button>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">COMPETITIVE INTELLIGENCE · EVIDENCE FIRST</p>
+          <h2 id="hero-title">竞品研究证据库</h2>
+          <p class="hero-lead">这不是第二个参赛产品，而是研链智证的研究基础设施。团队用统一分类、来源记录和判断边界，持续回答：市场已经解决了什么，哪些能力仍需验证，以及我们为什么选择证据化产业传播与 Research Diff。</p>
+          <div class="hero-actions">
+            <button id="browse-catalog" class="primary-action" type="button">浏览完整目录</button>
+            <a class="secondary-action" href="#method">查看研究方法</a>
           </div>
-          <label>优先级<select id="priority"><option value="">全部优先级</option></select></label>
-          <label>地域<select id="region"><option value="">全部地域</option></select></label>
-          <label>开源状态<select id="open-source"><option value="">全部开源状态</option></select></label>
-          <label>产品路线<select id="route"><option value="">全部产品路线</option></select></label>
-          <p class="privacy-note">数据来自发布时生成的研究快照。访问、筛选和检索只在浏览器中完成，不会写回原始数据库。</p>
+        </div>
+        <aside class="scope-card" aria-label="公开范围说明">
+          <div class="scope-label">公开范围</div>
+          <strong>研究快照，不是产品排名</strong>
+          <p>记录公开宣称、文档、案例和待验证问题；“未找到公开证据”不等于确认没有。访问与筛选均在浏览器本地完成。</p>
+          <ul>
+            <li>不采集访问分析数据</li>
+            <li>不开放内部维护与判断写回</li>
+            <li>不展示采购联系人或敏感备注</li>
+          </ul>
         </aside>
+      </section>
 
-        <section class="results">
-          <div class="results-heading">
-            <div><p>RESEARCH SURFACE</p><h2>竞品与证据</h2></div>
-            <div><span id="result-count">0</span> 条结果</div>
-          </div>
-          <div id="loading" class="empty">正在读取研究快照…</div>
-          <div id="empty" class="empty" hidden>没有符合当前条件的对象</div>
-          <div id="product-list" class="product-list"></div>
-        </section>
-      </div>
-      <footer>公开只读版本 · 不采集访问分析数据 · <span id="snapshot-time"></span></footer>
+      <section class="section-block" aria-labelledby="decision-title">
+        <div class="section-heading">
+          <div><p>FROM RESEARCH TO PRODUCT</p><h2 id="decision-title">研究如何改变产品</h2></div>
+          <p>竞品数量不是结论。真正重要的是研究如何转化为可解释的产品取舍。</p>
+        </div>
+        <div class="insight-grid">
+          <article class="insight-card"><span>01</span><h3>不重复建设通用数据终端</h3><p>金融终端已在数据、资讯与检索上形成深厚能力。研链智证聚焦重大事件后的研究重审，而不是替代所有数据入口。</p></article>
+          <article class="insight-card"><span>02</span><h3>不把长文生成当作核心壁垒</h3><p>通用 Deep Research 擅长多源汇总与报告写作。我们的差异是把新证据连接到既有研究状态，形成可审议的 Research Diff。</p></article>
+          <article class="insight-card"><span>03</span><h3>图谱底图不等于因果结论</h3><p>产业关系可由供应商或公开资料提供，但库存、替代、时滞、合同和财务映射仍需条件、证据和人工审核。</p></article>
+          <article class="insight-card"><span>04</span><h3>可信链路优先于黑箱判断</h3><p>每个关键结论应回到来源、时间、参数与版本；系统保留未知和反例，并由专业研究人员完成最终签收。</p></article>
+        </div>
+      </section>
+
+      <section class="section-block featured" aria-labelledby="featured-title">
+        <div class="section-heading compact">
+          <div><p>FOCUS SET</p><h2 id="featured-title">重点竞品一键查看</h2></div>
+          <p>精选直接竞品与关键替代方案；点击后进入完整证据目录。</p>
+        </div>
+        <div class="featured-list">
+          <button class="featured-chip" type="button" data-query="Bloomberg Terminal">Bloomberg / ASKB</button>
+          <button class="featured-chip" type="button" data-query="AlphaSense Platform">AlphaSense</button>
+          <button class="featured-chip" type="button" data-query="Hebbia Matrix">Hebbia Matrix</button>
+          <button class="featured-chip" type="button" data-query="iFinD 智能投研平台">iFinD</button>
+          <button class="featured-chip" type="button" data-query="AIWork 工作台">AIWork</button>
+          <button class="featured-chip" type="button" data-query="Kimi 金融行业解决方案">Kimi Finance</button>
+          <button class="featured-chip" type="button" data-query="Financial Research Agent">Google FRA</button>
+        </div>
+      </section>
+
+      <section id="method" class="method-grid" aria-label="研究方法">
+        <article><strong>统一对象</strong><p>产品、提供者、路线、证据和判断使用稳定ID，避免名称变化破坏引用。</p></article>
+        <article><strong>证据分层</strong><p>区分厂商宣称、产品文档、公开案例与实际测试，不把宣传自动写成事实。</p></article>
+        <article><strong>保留未知</strong><p>未找到公开材料时记录待验证问题，不把未知改写为“确认没有”。</p></article>
+        <article><strong>服务决策</strong><p>研究输出必须解释产品取舍、复用边界和下一步验证，而不是只做功能清单。</p></article>
+      </section>
+
+      <section id="catalog" class="catalog-section" aria-labelledby="catalog-title">
+        <div class="section-heading catalog-intro">
+          <div><p>FULL RESEARCH SURFACE</p><h2 id="catalog-title">完整竞品与证据目录</h2></div>
+          <p>使用搜索和组合筛选查看全部对象。产品详情包含公开来源、待验证问题和研究维护历史。</p>
+        </div>
+        <section id="metrics" class="metrics" aria-label="研究库概况"></section>
+        <div class="workspace">
+          <aside class="filters">
+            <div class="panel-heading">
+              <h2>组合筛选 <span id="filter-count" class="count-pill" hidden>0</span></h2>
+              <button id="clear" type="button">清除</button>
+            </div>
+            <label>优先级<select id="priority"><option value="">全部优先级</option></select></label>
+            <label>地域<select id="region"><option value="">全部地域</option></select></label>
+            <label>开源状态<select id="open-source"><option value="">全部开源状态</option></select></label>
+            <label>产品路线<select id="route"><option value="">全部产品路线</option></select></label>
+            <p class="privacy-note">数据来自发布时生成的研究快照。访问、筛选和检索只在浏览器中完成，不会写回原始数据库。</p>
+          </aside>
+          <section class="results">
+            <div class="results-heading">
+              <div><p>RESEARCH SURFACE</p><h2>竞品与证据</h2></div>
+              <div><span id="result-count">0</span> 条结果</div>
+            </div>
+            <div id="loading" class="empty">正在读取研究快照…</div>
+            <div id="empty" class="empty" hidden>没有符合当前条件的对象</div>
+            <div id="product-list" class="product-list"></div>
+          </section>
+        </div>
+      </section>
+
+      <footer>研链智证竞品研究证据库 · 公开只读版本 · 不采集访问分析数据 · <span id="snapshot-time"></span></footer>
     </main>
 
     <dialog id="detail-dialog">
